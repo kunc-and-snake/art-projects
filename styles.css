@@ -1,0 +1,38 @@
+html {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+    vertical-align: middle;
+    padding: 10px;
+
+}
+
+.frame {
+    background-color: rgb(230, 230, 230);
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
+
+
+}
+
+.frame video {
+    height:100px;
+    width: 100px;
+}
