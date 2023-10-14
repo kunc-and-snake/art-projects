@@ -10,7 +10,7 @@ let thoughts = [
     "Why am I always lonely?",
     "Who can I talk to?",
     "Why isn't there anybody?",
-    "Why don't I trust them?",
+    "Why don't I trust anyone?",
     "How can I feel better?",
     "How can I be better?",
     "Why can't I be better?",
@@ -26,6 +26,32 @@ let thoughts = [
     
 ]
 
+function createFrame() {
+    const cubeSize = Math.min(window.innerHeight, window.innerWidth) * 0.7;
+
+    let newFrame = document.createElement("div");
+    newFrame.style.width = "" + cubeSize + "px";
+    newFrame.style.height = "" + cubeSize + "px";
+    newFrame.classList.add("frame");
+    for (let i = 0; i < 25; i++) {
+        let newTile = document.createElement("div");
+        newTile.classList.add("tile");
+        newTile.style.width = "" + cubeSize/5 + "px";
+        newTile.style.height = "" + cubeSize/5 + "px";
+        if (i==12) {
+            let video = document.createElement("video");
+            video.id = "myVidPlayer";
+            // video.classList.add("tile");
+            video.style.width = "" + cubeSize/5 + "px";
+            video.style.height = "" + cubeSize/5 + "px";
+            newTile.appendChild(video);
+        }
+        newFrame.appendChild(newTile);
+        document.querySelector(".container").appendChild(newFrame)
+    }
+}
+
+createFrame()
 
 //Selector for your <video> element
 const video = document.querySelector('#myVidPlayer');
@@ -89,7 +115,8 @@ function onMouseLeave(event) {
 
 let tiles = document.querySelectorAll(".tile");
 tiles.forEach((tile) => {
-    tile.addEventListener("click", onTileClick);
+    if (!tile.hasChildNodes())
+    {tile.addEventListener("click", onTileClick);}
     tile.addEventListener("mouseover", onMouseOver);
     tile.addEventListener("mouseleave", onMouseLeave);
 })
